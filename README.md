@@ -1,1 +1,1 @@
-# woodmac-proj
+# Wood Mackenzie Generative-AI Challenge
