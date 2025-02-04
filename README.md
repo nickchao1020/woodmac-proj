@@ -125,6 +125,8 @@ flowchart LR
     - Terraform code is included in the `terraform` directory for creating a model instance profile
     - An AWS user or role with access to `awsBedrock:*` actions
 
+For simplicity, I used an AWS IAM User via a secret access key. This is generally not recommended. The application uses the standard AWS IAM credential chain. Adjust the `Makefile` and .env file accordingly if using an IAM role or some other IAM access method.
+
 The application can be run using the following commands from the root folder of this repository:
 ```sh
 # See the .env file include in the repo as an example
@@ -132,7 +134,6 @@ source .env
 make docker-build
 make docker-run
 ```
-For simplicity, I used an AWS IAM User via a secret access key. This is generally not recommended. The application uses the standard AWS IAM credential chain. Adjust the `Makefile` and .env file accordingly if using an IAM role or some other IAM access method.
 
 The application will launch in your default browser at `http://localhost:8501/`.
 
