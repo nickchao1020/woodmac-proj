@@ -1,7 +1,7 @@
 
 # Wood Mackenzie Generative-AI Challenge: The EIA Event Tracker
 
-The EIA Event Tracker generates a detailed summary and analysts of key events in the energy and mining markets as they are reported on the EIA.gov's "Today in Energy" column.
+The EIA Event Tracker generates a detailed summary and analysis of key events in the energy and mining markets as they are reported on the EIA.gov's "Today in Energy" column.
 
 ![EIA Event Tracker](./assets/ui.png)
 
