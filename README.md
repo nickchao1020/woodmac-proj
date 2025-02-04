@@ -100,29 +100,19 @@ The application runs as a docker container and is written in Python. It has thre
 ```
 
 ```mermaid
-flowchart  LR
+flowchart LR
+    A[EIA.gov_Articles] -->|Python_Scraper| B[Scraped_Articles]
+    B -->|AWS_Bedrock_LLM| C[Extracted_Events]
+    
+    subgraph Streamlit_Frontend
+        D[User_Input]
+        C -->|Context| E[Report_Generator]
+        D -->|Input| E
+        E -->|AWS_Bedrock| F[Generated_Report]
+    end
 
-A[EIA.gov Articles]  -->|Python Scraper|  B[Scraped Article Data]
-
-B  -->|AWS Bedrock Anthropic LLM|  C[Extracted Event Data]
-
-subgraph  Streamlit  Frontend
-
-D[User Input]
-
-C  -->|Context|  E[Report Generator]
-
-D  -->|Input|  E
-
-E  -->|AWS Bedrock|  F[Generated Report]
-
-end
-
-  
-
-style  A  fill:#f9f,stroke:#333
-
-style  E  fill:#bfb,stroke:#333
+    style A fill:#f9f,stroke:#333
+    style E fill:#bfb,stroke:#333
 ```
 
 ## How to Run
