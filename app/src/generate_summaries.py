@@ -141,8 +141,6 @@ async def infer(article: dict, output_dir: str) -> dict:
 
 
 async def _main(
-    user_profile: str,
-    topic_of_interest: str,
     articles_file: str,
     output_dir: str
 ):
@@ -154,8 +152,8 @@ async def _main(
     await asyncio.gather(*inference_tasks)
 
 
-def main(user_profile: str, topic_of_interest: str, articles_file: str, output_dir: str):
-    asyncio.run(_main(user_profile, topic_of_interest, articles_file, output_dir))
+def main(articles_file: str, output_dir: str):
+    asyncio.run(_main(articles_file, output_dir))
 
 
 if __name__ == "__main__":
