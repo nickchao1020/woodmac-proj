@@ -111,7 +111,7 @@ flowchart LR
         E -->|AWS_Bedrock| F[Generated_Report]
     end
 
-    style A fill:#f9f,stroke:#333
+    style F fill:#f9f,stroke:#333
     style B fill:#bfb,stroke:#333
     style E fill:#bfb,stroke:#333
 ```
