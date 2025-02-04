@@ -124,7 +124,7 @@ flowchart LR
     - Terraform code is included in the `terraform` directory for creating a model instance profile
     - An AWS user or role with access to `awsBedrock:*` actions
 
-The application can be run using the following commands:
+The application can be run using the following commands from the root folder of this repository:
 ```
 make docker-build
 make docker-run
