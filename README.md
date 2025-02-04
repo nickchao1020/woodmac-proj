@@ -98,7 +98,7 @@ The application runs as a docker container and is written in Python. It has thre
   "path": "detail.php?id=63704"
 }
 ```
-
+## System Diagram
 ```mermaid
 flowchart LR
     A[EIA.gov_Articles] -->|Python_Scraper| B[Scraped_Articles]
@@ -132,4 +132,18 @@ make docker-run
 For simplicity, I used an AWS IAM User via a secret access key. This is generally not recommended. The application uses the standard AWS IAM credential chain. Adjust the `Makefile` accordingly if using an IAM role or some other IAM access method.
 
 The application will launch in your default browser at `http://localhost:8501/`.
+
+## Data Pipeline
+
+The application comes pre-loaded with data in the `app/outputs` directory. This is data that was scraped from EIA.gov's "Today in Energy" reports as described above. The pipeline for generating involves two steps, which are separate ETL services:
+
+1. `python etl/pull_article_metadata.py && python etl/pull_articles.py` (this will generated the `etl/data/articles.json` file)
+2. `python app/src/generate_summaries.py etl/data/articles.json outputs/summaries.json` (this will generated the `outputs/summaries.json` file)
+
+The first step uses the requirements file in the `etl` directory. The second step uses the requirements file in the `app` directory.
+Both were run with Python 3.12.
+
+Step 1 scraped the EIA.gov website for article metadata and then scraped the articles themselves.
+
+Step 2 uses Anthropic's Bedrock to extract events from the articles.
 
