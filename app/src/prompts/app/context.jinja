@@ -1,0 +1,18 @@
+Do this task with the following list of recent events:
+
+{{ events }}
+
+You must provide your output in the following JSON format:
+{
+    "title": "Title of the report",
+    "summary": "Summary of the report",
+    "key_events": [
+        {
+            "event_description": "Description of the event copied directly from the event in the list",
+            "locations_mentioned": ["Location1", "Location2"],
+            "date": "Date of the event in YYYY-MM-DD format",
+            "path": "unique-identifier-for-the-article-the-event-came-from"
+        }
+    ],
+    "key_implications": "Explanation of the key implications of the report for the {{ topic_of_interest }}"
+}

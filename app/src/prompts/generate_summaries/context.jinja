@@ -1,0 +1,17 @@
+Do this task on this article:
+
+{{ article }}
+
+Extract events from this article and output them in the following list of json format that includes a citation from the article for the event:
+You will look at all this information and extract events and output them in the following list of json format that includes a citation from the article for the event:
+{
+    "events": [
+        {
+            "event-description":"a short description of the event, no longer than 2 sentences",
+            "locations-mentioned":["location1","location2"],
+            "date":"Date of the event in YYYY-MM-DD format. If the date is not present in the event description, use 'XXXX-XX-XX'.",
+            "citation":"the text from the articles content or title that you extracted the event from"
+        }
+    ],
+    "path":"unique-identifier"
+}
