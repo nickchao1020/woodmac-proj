@@ -101,7 +101,7 @@ The application runs as a docker container and is written in Python. It has thre
 ## System Diagram
 ```mermaid
 flowchart LR
-    A[EIA.gov_Articles] -->|Context| E[Article_Processor]
+    A[EIA.gov_Articles] -->|Context| B[Event_Extraxtor]
     B -->|AWS_Bedrock_LLM| C[Extracted_Events]
     
     subgraph Streamlit_Frontend
@@ -112,6 +112,7 @@ flowchart LR
     end
 
     style A fill:#f9f,stroke:#333
+    style B fill:#bfb,stroke:#333
     style E fill:#bfb,stroke:#333
 ```
 
