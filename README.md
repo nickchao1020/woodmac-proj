@@ -139,9 +139,9 @@ The application will launch in your default browser at `http://localhost:8501/`.
 
 ## Data Pipeline
 
-The application comes pre-loaded with data in the `app/outputs` directory. This is data that was scraped from EIA.gov's "Today in Energy" reports as described above. The pipeline for generating involves two steps, which are separate ETL services:
+The application comes pre-loaded with data in the `app/outputs` directory. This is data that was scraped from EIA.gov's "Today in Energy" reports as described above. The pipeline for generating involves two steps, which are separate ETL services. The two steps are both run using Python 3.12. The first step uses the requirements file in the `etl` directory. The second step uses the requirements file in the `app` directory. I used `virtualenv` to manage these environments, however next steps would be to wrap these in Docker images.
 
-1. `python etl/pull_article_metadata.py && python etl/pull_articles.py` (this will generated the `etl/data/articles.json` file)
+1. `python etl/pull_article_metadata.py && python etl/pull_articles.py` (this will generate the `etl/data/articles.json` file)
 2. `python app/src/generate_summaries.py etl/data/articles.json outputs/summaries.json` (this will generated the `outputs/summaries.json` file)
 
 The first step uses the requirements file in the `etl` directory. The second step uses the requirements file in the `app` directory.
